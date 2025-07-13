@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Beranda from './pages/user/Beranda';
+import ProfileDesa from './pages/user/ProfileDesa';
+import InfoGrafis from './pages/user/InfoGrafis.jsx';
+import PotensiDesa from './pages/user/PotensiDesa';
+import KontakLokasi from './pages/user/KontakLokasi';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="text-3xl font-bold text-blue-600">Hello Tailwind!</h1>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        {/* Route untuk halaman admin */}
+        
+        {/* Route untuk halaman user */}
+        <Route path="/" element={<Beranda />} />
+        <Route path="/profiledesa" element={<ProfileDesa />} />
+        <Route path="/infografis" element={<InfoGrafis />} />
+        <Route path="/potensidesa" element={<PotensiDesa />} />
+        <Route path="/kontaklokasi" element={<KontakLokasi />} />
+      </Routes>
+    </Router>
   );
 }
 
