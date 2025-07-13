@@ -17,7 +17,7 @@ const Beranda = () => {
       <Navbar />
 
       {/* ---------- HERO ---------- */}
-      <section className="relative h-[70vh] md:h-[80vh] flex items-center justify-center text-center">
+      <section className="relative h-[60vh] md:h-[70vh] flex items-center justify-center text-center">
         {/* Gambar */}
         <img
           src={fotodesa}
@@ -109,7 +109,7 @@ const Beranda = () => {
       {/* ---------- SEJARAH & MONOGRAFI ---------- */}
       <section className="bg-white px-4 py-12">
         {/* Sejarah */}
-        <div className="max-w-4xl mx-auto text-center space-y-4">
+        <div className="max-w-7xl mx-auto text-center space-y-4">
           <h2
             className="text-xl md:text-2xl font-extrabold text-[#FFD700] relative inline-block after:block after:mt-2 after:h-[3px] after:w-14 after:bg-[#DAA520] after:mx-auto">
             Sejarah Kelurahan Kanyuara
@@ -143,7 +143,14 @@ const Beranda = () => {
             aliquip ex ea commodo consequat. Duis aute irure dolor in
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. 
           </p>
         </div>
       </section>
