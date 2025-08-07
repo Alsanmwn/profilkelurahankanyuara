@@ -5,37 +5,35 @@ import logo from '../assets/logosidrap.png';
 
 const links = [
   { to: '/',            label: 'Beranda' },
-  { to: '/profiledesa',     label: 'Profile Desa' },
+  { to: '/profilekelurahan',     label: 'Profile Kelurahan' },
   { to: '/infografis',  label: 'Infografis' },
-  { to: '/potensidesa',     label: 'Potensi Desa' },
+  { to: '/potensikelurahan',     label: 'Potensi Kelurahan' },
+  { to: '/prokerkami',      label: 'Proker Kami' },
   { to: '/kontaklokasi',      label: 'Kontak & Lokasi' },
 ];
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  
   const linkClasses =
-    'px-3 py-2 rounded-md text-sm transition-colors duration-200';
+    'px-3 py-2 rounded-md text-base transition-colors duration-200';
 
   return (
     <nav className="fixed top-0 inset-x-0 z-50 bg-[#056805] shadow-lg rounded-b-[35px]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center h-16">
-
-          {/* ---------- Logo & title ---------- */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3 flex-shrink-0">
             <img src={logo} alt="Logo" className="w-12 h-12 object-contain" />
             <div>
-              <h1 className="text-lg font-semibold text-[#FFD700]">
+              <h1 className="text-lg md:text-xl font-semibold text-[#FFD700]">
                 Kelurahan Kanyuara
               </h1>
-              <p className="text-sm text-green-100">
+              <p className="text-sm md:text-base text-white">
                 Kabupaten Sidenreng Rappang
               </p>
             </div>
           </div>
 
-          {/* ---------- desktop menu ---------- */}
           <div className="hidden md:flex items-center space-x-8">
             {links.map(({ to, label }) => (
               <NavLink
@@ -45,18 +43,17 @@ const Navbar = () => {
                   `${linkClasses} ${
                     isActive
                       ? 'font-bold text-white'
-                      : 'text-green-100 hover:text-white'
+                      : 'text-white hover:text-white'
                   }`
                 }
-                end   /* supaya "/" hanya aktif di beranda */
+                end   
               >
                 {label}
               </NavLink>
             ))}
           </div>
 
-          {/* ---------- mobile toggle ---------- */}
-          <div className="md:hidden">
+          <div className="md:hidden flex-shrink-0">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-md text-green-100 hover:text-white hover:bg-green-600"
@@ -67,7 +64,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* ---------- mobile menu ---------- */}
       {isMenuOpen && (
         <div className="md:hidden bg-green-800">
           {links.map(({ to, label }) => (
