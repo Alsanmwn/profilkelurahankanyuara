@@ -113,7 +113,7 @@ const Beranda = () => {
               Kelurahan Kanyuara merupakan salah satu kelurahan yang terletak di Kecamatan Watang Sidenreng, Kabupaten Sidenreng Rappang, Provinsi Sulawesi Selatan. Wilayah ini dikenal dengan lingkungan masyarakatnya yang rukun serta menjunjung tinggi nilai-nilai kearifan lokal dan budaya Bugis. 
             </p>
             <p className="text-justify leading-relaxed text-sm md:text-base">
-              Masyarakat Kelurahan Kanyuara memiliki keunikan dibandingkan dengan daerah-daerah lain yang ada di Kabupaten Sidenreng Rappang. Hal ini karena masyarakat Kelurahan Kanyuara mayoritas penganut kepercayaan Hindu Madzab Tolotang, Kanyuara memiliki adat  istiadat yang khusus atau memiliki kearifan local yang hanya dimiliki diderah yang mayoritas penganut Hindu Madzab Tolotang. 
+              Masyarakat Kelurahan Kanyuara memiliki keunikan dibandingkan dengan daerah-daerah lain yang ada di Kabupaten Sidenreng Rappang. Hal ini karena masyarakat Kelurahan Kanyuara mayoritas penganut kepercayaan Hindu Madzab Tolotang, Kanyuara memiliki adat  istiadat yang khusus atau memiliki kearifan lokal yang hanya dimiliki diderah yang mayoritas penganut Hindu Madzab Tolotang. 
             </p>
           </div>
         </div>
@@ -151,7 +151,7 @@ const Beranda = () => {
           </h2>
 
           <p className="text-gray-700 text-sm md:text-base leading-relaxed text-justify md:text-center">
-            Pada zaman dahulu kalah diperkirakan pada tahun 1648, datanglah sekelompok orang dari Toani Wajo yang singgah pada suatu daerah yang tak berpenghuni dan belum pernah dijamah oleh manusia. Merekapun akhimya memutuskan untuk tinggal dan menetap di sana. Konon, pada waktu itu daerah tak berpenghuni itu dikuasai oleh seorang Datu, dialah Datu Suppa. merekapun akhirnya menghadap Datu meminta agar mereka dapat diizinkan tinggal dan menetap disana. Datupun memberi izin dan mereka akhirnya membuka lahan dan pemukiman.
+            Pada zaman dahulu kalah diperkirakan pada tahun 1648, datanglah sekelompok orang dari Toani Wajo yang singgah pada suatu daerah yang tak berpenghuni dan belum pernah dijamah oleh manusia. Merekapun akhinya memutuskan untuk tinggal dan menetap di sana. Konon, pada waktu itu daerah tak berpenghuni itu dikuasai oleh seorang Datu, dialah Datu Suppa. Merekapun akhirnya menghadap Datu meminta agar mereka dapat diizinkan tinggal dan menetap disana. Datupun memberi izin dan mereka akhirnya membuka lahan dan pemukiman.
           </p>
           <p className="text-gray-700 text-sm md:text-base leading-relaxed text-justify md:text-center">
             Diperkirakan 3 (tiga) tahun setelah mereka menetap, daerah itupun diberi nama Kanyuara. Nama Kanyuara sendiri diambil dari nama sebuah pohon raksasa yang sudah sangat tua dan sudah tumbuh dan hidup ribuan tahun silam, jauh sebelum daerah tersebut dihuni oleh manusia. Sebuah pohon kayu yang bernama <bold>Anyuara</bold> yang tumbuh sangat besar dan tinggi menjulang, saking besar dan tingginya pohon tersebut bisa terlihat dari kejauhan (bisa dilihat dari jarak ±30 Km). Pohon Anyuara biasa dan sering juga sebut <bold>Erre'e (Makerre')</bold> oleh penduduk setempat. <bold>Erre'e</bold> (keramat) Pohon Keramat. Begitulah sekiranya pohon kayu <bold>Anyuara</bold> disingkat menjadi K-Anyuara atau Kelurahan Kanyuara.
