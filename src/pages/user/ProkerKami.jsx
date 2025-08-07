@@ -51,7 +51,7 @@ const ProkerKami = () => {
       image: ulfa,
       description: (
         <>
-            <strong>Workshop Pembuatan Eco-Enzyme</strong> yang bertujuan untuk meningkatkan pengetahuan serta keterampilan masyarakat dalam mengolah limbah organik rumah tangga menjadi produk ramah lingkungan seperti pupuk cair, pembersih alami, dan pengusir hama. Kegiatan ini menyasar ibu rumah tangga, pemuda, dan kader PKK, dengan harapan peserta mampu memahami manfaat eco-enzyme serta mempraktikkan pembuatannya secara mandiri.
+            <strong>Workshop Pembuatan Eco-Enzyme</strong> bertujuan meningkatkan pemahaman dan keterampilan masyarakat, terutama ibu rumah tangga, pemuda, dan kader PKK, dalam mengolah limbah organik rumah tangga menjadi produk ramah lingkungan seperti pupuk cair, pembersih alami, dan pengusir hama secara mandiri.
         </>
       )
     },
@@ -73,7 +73,7 @@ const ProkerKami = () => {
       image: kakbudi,
       description: (
         <>
-            <strong>Pencegahan Demam Berdarah Dengue (DBD)</strong> yang menyasar siswa SDN 3 Watang Sidenreng kelas V dan VI serta masyarakat sekitar. Dalam program ini, siswa dilatih menjadi "Jumantik Cilik" yang bertugas memantau dan mencegah perkembangan nyamuk Aedes aegypti. Mereka diberikan edukasi tentang 3M plus, siklus hidup nyamuk, serta pentingnya menjaga kebersihan lingkungan, agar dapat menjadi agen perubahan di lingkungannya masing-masing.
+            <strong>Pencegahan Demam Berdarah Dengue (DBD)</strong> ditujukan bagi siswa kelas V dan VI SDN 3 Watang Sidenreng serta masyarakat sekitar. Dalam kegiatan ini, siswa dilatih menjadi Jumantik Cilik yang bertugas memantau jentik nyamuk dan mengedukasi lingkungan sekitar. Mereka dibekali pengetahuan tentang 3M Plus, siklus hidup nyamuk Aedes aegypti, serta pentingnya menjaga kebersihan untuk mencegah penyebaran DBD.
         </>
       )
     },
@@ -84,7 +84,7 @@ const ProkerKami = () => {
       image: foto13, 
       description: (
         <>
-            Sebagai program kerja kelompok, dilaksanakan <strong>Pembuatan Buku Financial Planning untuk Petani</strong> yang bertujuan untuk meningkatkan literasi keuangan para petani kecil dan menengah. Buku ini disusun secara praktis dan disesuaikan dengan kebutuhan petani agar dapat membantu mereka dalam merencanakan pengelolaan hasil pertanian secara efisien dan berkelanjutan. Buku tersebut kemudian dicetak dan didistribusikan kepada kelompok tani sebagai bentuk kontribusi nyata dalam meningkatkan ketahanan ekonomi rumah tangga petani.
+            Sebagai program kerja kelompok, dilaksanakan <strong>Pembuatan Buku Financial Planning untuk Petani</strong> guna meningkatkan literasi keuangan petani kecil dan menengah. Buku ini disusun secara praktis sesuai kebutuhan petani, agar membantu mereka mengelola hasil pertanian secara efisien dan berkelanjutan. Buku dicetak dan dibagikan kepada kelompok tani sebagai upaya mendukung ketahanan ekonomi petani.
         </>
       )
     }
