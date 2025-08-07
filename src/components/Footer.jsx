@@ -3,9 +3,7 @@ import React from 'react';
 const Footer = () => {
   return (
     <footer className="w-full bg-[#056805] text-white overflow-visible rounded-t-[35px]">
-      {/* Kontainer penuh (tanpa max‑width) */}
       <div className="pt-10 pb-6 px-4 sm:px-6 lg:px-12 w-full space-y-6">
-        {/* Header */}
         <div className="text-center space-y-1">
           <h2 className="text-xl md:text-2xl font-bold text-[#FFD700] w-full">
             Kelurahan Kanyuara
@@ -15,7 +13,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Grid 3 Kolom – teks span full */}
         <div className="grid gap-6 md:grid-cols-3 text-xs md:text-sm leading-snug w-full">
           {/* Kolom 1 */}
           <div className="w-full text-center">
@@ -48,10 +45,8 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Garis */}
         <hr className="border-t border-gray-300 w-full" />
 
-        {/* Copyright */}
         <p className="text-center text-xs w-full">
           © 2025 Kelurahan Kanyuara – All rights reserved
         </p>
