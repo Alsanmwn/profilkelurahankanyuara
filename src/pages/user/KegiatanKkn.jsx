@@ -26,6 +26,11 @@ import sampul222 from '../../assets/foto222.jpg';
 import sampul23 from '../../assets/foto23.jpg';
 import sampul24 from '../../assets/foto24.jpg';
 import sampul25 from '../../assets/foto25.jpg';
+import sampul26 from '../../assets/foto26.jpg';
+import sampul27 from '../../assets/foto27.jpg';
+import sampul28 from '../../assets/foto28.jpg';
+import sampul29 from '../../assets/foto29.jpg';
+import sampul30 from '../../assets/foto30.jpg';
 
 const items = [
   { id: 1,  img: sampul },
@@ -53,6 +58,11 @@ const items = [
   { id:23,  img: sampul23, tall: true },
   { id:24,  img: sampul24 },
   { id:25,  img: sampul25 },
+  { id:26,  img: sampul26, tall: true },
+  { id:27,  img: sampul27 },
+  { id:28,  img: sampul28 },
+  { id:29,  img: sampul29 },
+  { id:30,  img: sampul30 },
 ];
 
 const Card = ({ img, title, tall, onOpen }) => (
