@@ -149,7 +149,7 @@ const ProfileKelurahan = () => {
               <img
                 src={bagan}
                 alt="Bagan Struktur"
-                className="max-h-96 w-auto object-contain rounded-lg shadow"
+                className="w-full max-w-[1000px] max-h-[80vh] object-contain rounded-lg shadow"
               />
             ) : (
               <div className="h-48 md:h-64 w-full bg-gray-200 flex items-center justify-center rounded-lg">
@@ -172,7 +172,7 @@ const ProfileKelurahan = () => {
               <img
                 src={peta_kelurahan}
                 alt="Peta Kelurahan"
-                className="max-h-96 w-auto object-contain rounded-lg shadow"
+                className="w-full max-w-[1000px] max-h-[80vh] object-contain rounded-lg shadow"
               />
             ) : (
               <div className="h-48 md:h-64 w-full bg-gray-200 flex items-center justify-center rounded-lg">
