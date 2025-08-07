@@ -4,7 +4,7 @@ import Footer from '../../components/Footer';
 import heroImg from '../../assets/pohon.jpg';
 import padiImg from '../../assets/padi.jpg';
 import sapiImg from '../../assets/sapi.jpg';
-import ayamImg from '../../assets/ayam.jpg';
+import ikanImg from '../../assets/ternakikan.png';
 import bebekImg from '../../assets/bebek.jpg';
 import sdn3Img from '../../assets/sdn3.jpg';
 import sdn4Img from '../../assets/sdn4.jpg';
@@ -130,7 +130,7 @@ const PotensiKelurahan = () => {
               <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow">
                 <div className="relative h-48 md:h-56">
                   <img
-                    src={ayamImg}
+                    src={ikanImg}
                     alt="Ikan"
                     className="w-full h-full object-cover"
                   />
@@ -179,7 +179,7 @@ const PotensiKelurahan = () => {
                   </p>
                 </div>
               </div>
-              
+
               <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow">
                 <div className="relative h-48 md:h-56">
                   <img
