@@ -1,62 +1,92 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../firebase'; 
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import fotodesa from '../../assets/fotodesa.png';
+import kantorlurah from '../../assets/kantorlurah.jpg';
+import foto11 from '../../assets/foto11.jpg';
+import foto22 from '../../assets/foto22.jpg';
+import foto33 from '../../assets/foto33.jpg';
+import foto44 from '../../assets/foto44.jpg';
+import foto55 from '../../assets/foto55.jpg';
 import { Home, Users, Ruler } from 'lucide-react';
 import { Link } from 'react-router-dom';  
 
 const Beranda = () => {
-  /* ---------- Scroll ke section profil ---------- */
+  const [mono, setMono]       = useState(null);  
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const snap = await getDoc(doc(db, 'data_kelurahan', 'jumlah_penduduk'));
+        if (snap.exists()) setMono(snap.data());
+      } catch (err) {
+        console.error('Gagal mengambil data monografi:', err);
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, []);
+
   const goToProfile = () => {
-    const el = document.getElementById('profile-section');
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.getElementById('profile-section')?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
   };
+
+  const [sambutanLurah, setSambutanLurah] = useState(null);
+  useEffect(() => {
+  (async () => {
+    try {
+      const snap = await getDoc(doc(db, 'data_kelurahan', 'sambutan_lurah'));
+      if (snap.exists()) setSambutanLurah(snap.data());
+    } catch (err) {
+      console.error('Gagal mengambil sambutan lurah:', err);
+    }
+  })();
+}, []);
 
   return (
     <div className="min-h-screen bg-white scroll-smooth">
       <Navbar />
 
-      {/* ---------- HERO ---------- */}
       <section className="relative h-[60vh] md:h-[70vh] flex items-center justify-center text-center">
-        {/* Gambar */}
+
         <img
-          src={fotodesa}
+          src={kantorlurah}
           alt="Hero"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        {/* Overlay gelap */}
+
         <div className="absolute inset-0 bg-black/40" />
-        {/* Overlay gradasi */}
+
         <div className="absolute inset-0 bg-gradient-to-r from-[#056805]/50 to-white/30" />
 
-        {/* Konten */}
         <div className="relative z-10 max-w-3xl px-4 space-y-4">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#FFD700] drop-shadow-lg">
             Selamat Datang di Website Kami
           </h1>
           <p className="text-white text-sm md:text-base">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Selamat datang di website resmi Kelurahan Kanyuara, Kecamatan Watang Sidenreng, Kabupaten Sidenreng Rappang.
           </p>
           <button
             onClick={goToProfile}
-            className="bg-white text-gray-800 font-semibold px-10 py-2 rounded-full
-                       border-2 border-[#FFD700] hover:shadow-lg transition-all"
+            className="mt-4 px-6 py-2 bg-[#FFD700] text-black font-semibold rounded-lg hover:bg-[#DAA520] transition-colors"
           >
             Mulai
           </button>
         </div>
       </section>
 
-      {/* ---------- PROFILE ---------- */}
       <section id="profile-section" className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
-          {/* Image + caption */}
           <div className="flex justify-center lg:justify-start">
             <div>
               <figure className="w-full max-w-[480px] rounded-lg shadow">
                 <img
-                  src={fotodesa}
+                  src={kantorlurah}
                   alt="Kelurahan Kanyuara"
                   className="w-full h-auto object-cover rounded-lg"
                 />
@@ -70,7 +100,6 @@ const Beranda = () => {
             </div>
           </div>
 
-          {/* Text */}
           <div className="text-gray-700 space-y-4">
             <h2
               className="text-lg sm:text-xl md:text-2xl font-bold text-right text-[#FFD700]
@@ -81,107 +110,91 @@ const Beranda = () => {
               Profile Kelurahan Kanyuara
             </h2>
             <p className="text-justify leading-relaxed text-sm md:text-base">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              Kelurahan Kanyuara merupakan salah satu kelurahan yang terletak di Kecamatan Watang Sidenreng, Kabupaten Sidenreng Rappang, Provinsi Sulawesi Selatan. Wilayah ini dikenal dengan lingkungan masyarakatnya yang rukun serta menjunjung tinggi nilai-nilai kearifan lokal dan budaya Bugis. 
             </p>
             <p className="text-justify leading-relaxed text-sm md:text-base">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-            <p className="text-justify leading-relaxed text-sm md:text-base">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Masyarakat Kelurahan Kanyuara memiliki keunikan dibandingkan dengan daerah-daerah lain yang ada di Kabupaten Sidenreng Rappang. Hal ini karena masyarakat Kelurahan Kanyuara mayoritas penganut kepercayaan Hindu Madzab Tolotang, Kanyuara memiliki adat  istiadat yang khusus atau memiliki kearifan local yang hanya dimiliki diderah yang mayoritas penganut Hindu Madzab Tolotang. 
             </p>
           </div>
         </div>
       </section>
 
-      {/* ---------- Placeholder blok warna ---------- */}
-      <section className="grid grid-cols-2 h-[300px]">
-        <div className="bg-[#7e9861]" />
-        <div className="bg-[#eacd4a]" />
+      <section className="bg-[#f7f4e8] py-12 px-4">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+          <div className="flex justify-center">
+            <img
+              src={sambutanLurah?.gambar || 'https://via.placeholder.com/300'}
+              alt={sambutanLurah?.nama || 'Foto Lurah'}
+            className="w-[220px] h-[300px] object-cover rounded-[150px] shadow-lg"
+            />
+          </div>
+
+          <div>
+            <h3 className="text-xl font-bold text-[#FFD700] mb-2">
+              Sambutan Kepala Kelurahan
+            </h3>
+            <p className="text-gray-800 italic mb-4">
+              "{sambutanLurah?.sambutan || 'Belum ada sambutan.'}"
+            </p>
+            <p className="text-gray-700 font-semibold">
+              — {sambutanLurah?.nama || 'Nama Lurah'}
+            </p>
+          </div>
+        </div>
       </section>
 
-      {/* ---------- SEJARAH & MONOGRAFI ---------- */}
       <section className="bg-white px-4 py-12">
-        {/* Sejarah */}
         <div className="max-w-7xl mx-auto text-center space-y-4">
           <h2
-            className="text-xl md:text-2xl font-extrabold text-[#FFD700] relative inline-block after:block after:mt-2 after:h-[3px] after:w-14 after:bg-[#DAA520] after:mx-auto">
+            className="text-xl md:text-2xl font-bold text-[#FFD700] relative inline-block after:block after:mt-2 after:h-[3px] after:w-14 after:bg-[#DAA520] after:mx-auto">
             Sejarah Kelurahan Kanyuara
           </h2>
 
           <p className="text-gray-700 text-sm md:text-base leading-relaxed text-justify md:text-center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            Pada zaman dahulu kalah diperkirakan pada tahun 1648, datanglah sekelompok orang dari Toani Wajo yang singgah pada suatu daerah yang tak berpenghuni dan belum pernah dijamah oleh manusia. Merekapun akhimya memutuskan untuk tinggal dan menetap di sana. Konon, pada waktu itu daerah tak berpenghuni itu dikuasai oleh seorang Datu, dialah Datu Suppa. merekapun akhirnya menghadap Datu meminta agar mereka dapat diizinkan tinggal dan menetap disana. Datupun memberi izin dan mereka akhirnya membuka lahan dan pemukiman.
           </p>
           <p className="text-gray-700 text-sm md:text-base leading-relaxed text-justify md:text-center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Diperkirakan 3 (tiga) tahun setelah mereka menetap, daerah itupun diberi nama Kanyuara. Nama Kanyuara sendiri diambil dari nama sebuah pohon raksasa yang sudah sangat tua dan sudah tumbuh dan hidup ribuan tahun silam, jauh sebelum daerah tersebut dihuni oleh manusia. Sebuah pohon kayu yang bernama <bold>Anyuara</bold> yang tumbuh sangat besar dan tinggi menjulang, saking besar dan tingginya pohon tersebut bisa terlihat dari kejauhan (bisa dilihat dari jarak ±30 Km). Pohon Anyuara biasa dan sering juga sebut <bold>Erre'e (Makerre')</bold> oleh penduduk setempat. <bold>Erre'e</bold> (keramat) Pohon Keramat. Begitulah sekiranya pohon kayu <bold>Anyuara</bold> disingkat menjadi K-Anyuara atau Kelurahan Kanyuara.
+          </p>
+          <p className="text-gray-700 text-sm md:text-base leading-relaxed text-justify md:text-center">
+            Pada waktu Kecamatan Watang Sidenreng masih berada dalam wilayah Kecamatan Maritengngae, Kanyuara merupakan salah satu lingkungan yang masuk dalam wilayah Kelurahan Watang Sidenreng, setelah Kecamatan Maritengngae di mekarkan menjadi   2 (dua) kecamatan yakni : Kecamatan Maritengngae dan Kecamatan Watang Sidenreng. Pada awalnya Kanyuara bergabung dalam wilayah kelurahan Sidenreng, namun setelah tanggal 14 November 1994 Kelurahan Kanyuara resmi menjadi sebuah kelurahan yang dikepala oleh seorang lurah yang bernama H. Wellang, dan hingga saat ini Kanyuara merupakan salah satu kelurahan yang berada di wilayah Kecamatan Watang Sidenreng.
+          </p>
+          <p className="text-gray-700 text-sm md:text-base leading-relaxed text-justify md:text-center">
+            
           </p>
         </div>
       </section>
 
-      {/* ---------- Data Monografi - Full Width ---------- */}
       <section className="bg-[#7e9861] text-white">
         <div className="py-6 text-center">
           <h3 className="text-lg md:text-xl font-bold">Data Monografi</h3>
         </div>
 
         <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 py-8">
-          {/* Lingkungan */}
           <div className="flex flex-col items-center space-y-2">
             <Home className="h-10 w-10" strokeWidth={1.5} />
             <p className="text-xl text-[#FFD700]">Lingkungan</p>
-            <p className="text-xl font-extrabold text-[#FFD700]">2</p>
+            <p className="text-xl font-extrabold text-[#FFD700]">
+              {loading ? '…' : mono?.jumlah_lingkungan ?? '—'}
+            </p>
           </div>
 
-          {/* Penduduk */}
           <div className="flex flex-col items-center space-y-2">
             <Users className="h-10 w-10" strokeWidth={1.5} />
             <p className="text-xl text-[#FFD700]">Jumlah Penduduk</p>
-            <p className="text-xl font-extrabold text-[#FFD700]">3.780</p>
+            <p className="text-xl font-extrabold text-[#FFD700]">
+              {loading
+                ? '…'
+                : mono?.total_penduduk?.toLocaleString('id-ID') ?? '—'}
+            </p>
           </div>
 
-          {/* Luas */}
           <div className="flex flex-col items-center space-y-2">
             <Ruler className="h-10 w-10" strokeWidth={1.5} />
             <p className="text-xl text-[#FFD700]">Luas Kelurahan</p>
             <p className="text-xl font-extrabold text-[#FFD700]">
-              12,54&nbsp;<span className="text-base">Km²</span>
+              {loading ? '…' : mono?.luas_kelurahan ?? '—'}&nbsp;
+              <span className="text-base">Km²</span>
             </p>
           </div>
         </div>
@@ -189,120 +202,69 @@ const Beranda = () => {
         <div className="text-center pb-8">
           <Link
             to="/infografis"
-            className="inline-block bg-white text-gray-800 font-semibold px-8 py-2 rounded-full
-                      border-2 border-[#FFD700] hover:shadow-lg transition-all"
-          >
+            className="mt-4 px-6 py-2 bg-[#FFD700] text-black font-semibold rounded-lg hover:bg-[#DAA520] transition-colors">
             Selengkapnya
           </Link>
         </div>
       </section>
 
-      {/* ---------- KEGIATAN KKN ---------- */}
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          {/* Header */}
           <div className="text-center mb-12">
-            <h2 className="text-xl md:text-2xl font-extrabold text-[#FFD700] relative inline-block after:block after:mt-2 after:h-[3px] after:w-14 after:bg-[#DAA520] after:mx-auto">
-              Kegiatan KKN Gel. 114 Yang Telah Kami Laksanakan
+            <h2 className="text-xl md:text-2xl font-bold text-[#FFD700] relative inline-block after:block after:mt-2 after:h-[3px] after:w-14 after:bg-[#DAA520] after:mx-auto">
+              Kegiatan KKN UNHAS Gel. 114 Yang Telah Kami Laksanakan
             </h2>
           </div>
 
-          {/* Grid Kegiatan - Layout Custom sesuai gambar */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Baris Atas - 2 Card */}
-            {/* Card 1 - Kiri Atas */}
             <div className="relative group overflow-hidden rounded-lg shadow-lg bg-gray-800 h-64 md:h-72">
               <img
-                src={fotodesa}
+                src={foto11}
                 alt="Bimbingan Teknis Pemanfaatan TIK"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 group-hover:bg-black/50 transition-colors duration-300" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                <h3 className="text-sm md:text-base font-bold text-center mb-3 leading-tight" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8), -1px -1px 2px rgba(0,0,0,0.8), 1px -1px 2px rgba(0,0,0,0.8), -1px 1px 2px rgba(0,0,0,0.8)'}}>
-                  Bimbingan Teknis Pemanfaatan TIK Untuk Pembelajaran
-                </h3>
-              </div>
             </div>
 
-            {/* Card 2 - Kanan Atas */}
             <div className="relative group overflow-hidden rounded-lg shadow-lg bg-gray-800 h-64 md:h-72">
               <img
-                src={fotodesa}
+                src={foto22}
                 alt="Akselerasi Ekosistem Pendidikan"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 group-hover:bg-black/50 transition-colors duration-300" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                <h3 className="text-sm md:text-base font-bold text-center mb-3 leading-tight" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8), -1px -1px 2px rgba(0,0,0,0.8), 1px -1px 2px rgba(0,0,0,0.8), -1px 1px 2px rgba(0,0,0,0.8)'}}>
-                  Akselerasi Ekosistem Pendidikan Berbasis Digital Komputer
-                </h3>
-                <div className="flex justify-center">
-                </div>
-              </div>
             </div>
 
-            {/* Card 3 - Tengah (Besar) - Spans 2 columns pada lg, row-span 2 */}
             <div className="relative group overflow-hidden rounded-lg shadow-lg bg-gray-800 h-64 md:h-72 lg:row-span-2 lg:h-auto lg:min-h-[600px]">
               <img
-                src={fotodesa}
+                src={foto33}
                 alt="Sosialisasi Security Awareness"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 group-hover:bg-black/50 transition-colors duration-300" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h3 className="text-lg md:text-xl font-bold text-center mb-4 leading-tight" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8), -1px -1px 2px rgba(0,0,0,0.8), 1px -1px 2px rgba(0,0,0,0.8), -1px 1px 2px rgba(0,0,0,0.8)'}}>
-                  Sosialisasi mengenai Peningkatan Security Awareness
-                </h3>
-                <div className="flex justify-center">
-                </div>
-              </div>
             </div>
 
-            {/* Baris Bawah - 2 Card */}
-            {/* Card 4 - Kiri Bawah */}
             <div className="relative group overflow-hidden rounded-lg shadow-lg bg-gray-800 h-64 md:h-72">
               <img
-                src={fotodesa}
+                src={foto44}
                 alt="Kegiatan Fasilitas Google Sites SMK"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 group-hover:bg-black/50 transition-colors duration-300" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                <h3 className="text-sm md:text-base font-bold text-center mb-3 leading-tight" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8), -1px -1px 2px rgba(0,0,0,0.8), 1px -1px 2px rgba(0,0,0,0.8), -1px 1px 2px rgba(0,0,0,0.8)'}}>
-                  Kegiatan Fasilitas Google Sites Bagi Guru SMK di Mataram
-                </h3>
-                <div className="flex justify-center">
-                </div>
-              </div>
             </div>
 
-            {/* Card 5 - Kanan Bawah */}
             <div className="relative group overflow-hidden rounded-lg shadow-lg bg-gray-800 h-64 md:h-72">
               <img
-                src={fotodesa}
+                src={foto55}
                 alt="Kegiatan Fasilitas Google Sites SMA"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 group-hover:bg-black/50 transition-colors duration-300" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                <h3 className="text-sm md:text-base font-bold text-center mb-3 leading-tight" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8), -1px -1px 2px rgba(0,0,0,0.8), 1px -1px 2px rgba(0,0,0,0.8), -1px 1px 2px rgba(0,0,0,0.8)'}}>
-                  Kegiatan Fasilitas Google Sites Bagi Guru SMA Di Makassar
-                </h3>
-                <div className="flex justify-center">
-                </div>
-              </div>
             </div>
           </div>
-
-          {/* Link "Lihat lebih banyak" di kanan */}
+          
           <div className="flex justify-end mt-6">
-            <a
-              href="#"
+            <Link
+              to="/kegiatankkn"
               className="text-blue-600 hover:underline font-semibold text-sm md:text-base"
             >
               Lihat lebih banyak
-            </a>
+            </Link>
           </div>
         </div>
       </section>
