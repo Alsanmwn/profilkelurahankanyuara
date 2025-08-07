@@ -1,0 +1,19 @@
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from 'firebase/firestore';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyChhnnMDFfgBmBdUBBtp401xzf_B0RCrAk",
+  authDomain: "kknt114kelurahankanyuara.firebaseapp.com",
+  projectId: "kknt114kelurahankanyuara",
+  storageBucket: "kknt114kelurahankanyuara.firebasestorage.app",
+  messagingSenderId: "562664352871",
+  appId: "1:562664352871:web:6c5a043782d9289328b8c2",
+  measurementId: "G-Q1WGW6TFTT"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getFirestore(app);
+export { db };
