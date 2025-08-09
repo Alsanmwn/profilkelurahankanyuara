@@ -149,7 +149,7 @@ const Sidebar = () => {
         </button>
 
         <div className="p-4 border-t text-center">
-          <p className="text-xs text-gray-500">© 2024 Admin Panel</p>
+          <p className="text-xs text-gray-500">© 2025 Admin Panel</p>
         </div>
       </aside>
 
