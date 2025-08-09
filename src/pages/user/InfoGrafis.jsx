@@ -4,7 +4,6 @@ import { db } from '../../firebase';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import {
-  Home,
   Users,
   Building,
   Layers,
@@ -22,7 +21,6 @@ import {
   Bird,
   Fish,
   Beef,
-  UserCheck,
   Users2,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
