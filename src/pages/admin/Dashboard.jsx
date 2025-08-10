@@ -15,6 +15,32 @@ const Dashboard = () => {
     jumlah_perempuan: 0,
   });
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
+
+  // Fungsi untuk format tanggal dalam bahasa Indonesia
+  const formatDateTime = (date) => {
+    const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+    const months = [
+      'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+      'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+    ];
+
+    const dayName = days[date.getDay()];
+    const day = date.getDate();
+    const month = months[date.getMonth()];
+    const year = date.getFullYear();
+
+    return `${dayName}, ${day} ${month} ${year}`;
+  };
+
+  // Update waktu setiap detik
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentDateTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -207,7 +233,7 @@ const Dashboard = () => {
               <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 text-xs sm:text-sm">
                 <div className="flex items-center space-x-2">
                   <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
-                  <span>Sabtu, 19 Juli 2025</span>
+                  <span>{formatDateTime(currentDateTime)}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
